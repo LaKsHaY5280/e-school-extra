@@ -1,0 +1,170 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --animation-slow: 0.7s;
+  --animation-medium: 0.5s;
+  --animation-fast: 0.3s;
+  
+  /* Replace @theme with standard variables */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Responsive font sizes */
+  --text-xs: clamp(0.75rem, 0.7vw, 0.875rem);
+  --text-sm: clamp(0.875rem, 1vw, 1rem);
+  --text-base: clamp(1rem, 1.1vw, 1.125rem);
+  --text-lg: clamp(1.125rem, 1.3vw, 1.25rem);
+  --text-xl: clamp(1.25rem, 1.5vw, 1.5rem);
+  --text-2xl: clamp(1.5rem, 2vw, 1.875rem);
+  --text-3xl: clamp(1.875rem, 2.5vw, 2.25rem);
+  --text-4xl: clamp(2.25rem, 3vw, 3rem);
+  --text-5xl: clamp(3rem, 4vw, 3.75rem);
+  
+  /* Responsive spacing */
+  --space-xs: clamp(0.25rem, 0.5vw, 0.5rem);
+  --space-sm: clamp(0.5rem, 1vw, 0.75rem);
+  --space-md: clamp(1rem, 2vw, 1.5rem);
+  --space-lg: clamp(1.5rem, 3vw, 2rem);
+  --space-xl: clamp(2rem, 4vw, 3rem);
+  --space-2xl: clamp(3rem, 5vw, 4rem);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+  font-size: var(--text-base);
+  line-height: 1.6;
+}
+
+/* Animation utilities */
+.animate-hidden {
+  opacity: 0;
+}
+
+.animate-visible {
+  opacity: 1;
+}
+
+/* CountUp animation styles */
+.count-up-animation {
+  display: inline-block;
+  min-width: 2.5ch; /* For stable width during counting */
+  text-align: right;
+}
+
+/* Reduce motion preference */
+@media (prefers-reduced-motion) {
+  .animate-hidden, 
+  .animate-visible,
+  .count-up-animation {
+    transition: none !important;
+    animation: none !important;
+  }
+}
+
+/* Swiper styles */
+.courses-swiper {
+  padding: 20px 0 0 !important;
+  margin: 0 10px !important;
+}
+
+/* Hide default Swiper navigation arrows completely */
+.swiper-button-next,
+.swiper-button-prev {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Custom navigation buttons */
+.custom-prev-button,
+.custom-next-button {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+  z-index: 10 !important;
+}
+
+/* Enhanced pagination dots */
+.swiper-pagination-custom {
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  min-height: 20px !important;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet {
+  width: 12px !important;
+  height: 12px !important;
+  background: rgba(33, 181, 115, 0.4) !important;
+  opacity: 1 !important;
+  margin: 0 5px !important;
+  transition: all 0.3s ease !important;
+  display: inline-block !important;
+}
+
+.swiper-pagination-custom .swiper-pagination-bullet-active {
+  background: #21B573 !important;
+  transform: scale(1.2) !important;
+}
+
+/* Add these styles to make sure pagination is visible */
+.swiper-horizontal > .swiper-pagination-bullets,
+.swiper-pagination-bullets.swiper-pagination-horizontal {
+  bottom: 0 !important;
+  position: static !important;
+  width: 100% !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+@media (max-width: 640px) {
+  .courses-swiper {
+    margin: 0 -1rem;
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: var(--text-3xl);
+  }
+  
+  h2 {
+    font-size: var(--text-2xl);
+  }
+  
+  .footer-column {
+    margin-bottom: var(--space-lg);
+  }
+}
+
+@media (max-width: 768px) {
+  .testimonial-container {
+    text-align: center;
+  }
+}
+
+/* Responsive utilities */
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: max(1rem, 5%);
+  padding-left: max(1rem, 5%);
+}
+
+/* Make sure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+}
